@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { ensureDbConnected } from "../lib/dbconnect";
+import { ensureDbConnected } from "../../../../../packages/lib/dbconnect";
 import jwt from "jsonwebtoken";
 import { Admin } from "db";
 

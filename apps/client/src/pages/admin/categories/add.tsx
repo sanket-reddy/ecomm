@@ -1,4 +1,4 @@
-import GlobalStyles from "@/pages/lib/Globalstyles";
+import GlobalStyles from "../../../../../../packages/lib/Globalstyles";
 import { TextField, Button } from "@mui/material";
 import Appbar from "ui/components/Appbar";
 import { useState, useEffect } from "react";

@@ -26,7 +26,14 @@ export default function Appbar(props: ClientType) {
             }}
           >
             <div style={{ display: "flex" }}>
-              <img src="/logo.jpeg" style={{ height: "60px" }}></img>
+              <img
+                src="/logo.jpeg"
+                style={{ height: "60px" }}
+                onClick={() => {
+                  console.log("clicked");
+                  Router.push("/user/categories");
+                }}
+              ></img>
 
               <AccountCircleSharpIcon
                 style={{ marginLeft: "20px", marginTop: "3px" }}
@@ -72,7 +79,13 @@ export default function Appbar(props: ClientType) {
             }}
           >
             <div style={{ display: "flex" }}>
-              <img src="/logo.jpeg" style={{ height: "60px" }}></img>
+              <img
+                src="/logo.jpeg"
+                style={{ height: "60px" }}
+                onClick={() => {
+                  Router.push("/user/categories");
+                }}
+              ></img>
 
               <AccountCircleSharpIcon
                 style={{ marginLeft: "20px", marginTop: "3px" }}
@@ -84,13 +97,6 @@ export default function Appbar(props: ClientType) {
             </div>
 
             <div style={{ display: "flex" }}>
-              {/* <ShoppingCartIcon
-                style={{ marginRight: "20px", marginTop: "8px" }}
-                sx={{ fontSize: 44 }}
-                onClick={() => {
-                  Router.push("/user/cart");
-                }}
-              /> */}
               <div>
                 <Button
                   variant="contained"

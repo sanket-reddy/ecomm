@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { NextApiRequest, NextApiResponse } from "next";
 import { User } from "db";
 import jwt from "jsonwebtoken";
-import { ensureDbConnected } from "../lib/dbconnect";
+import { ensureDbConnected } from "../../../../../packages/lib/dbconnect";
 const SecretKey = "e_commerce_app";
 type Data = {};
 

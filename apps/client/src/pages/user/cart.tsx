@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import GlobalStyles from "../lib/Globalstyles";
+import GlobalStyles from "../../../../../packages/lib/Globalstyles";
 import Appbar from "ui/components/Appbar";
 import axios from "axios";
 import Laptop from "ui/components/Laptop";

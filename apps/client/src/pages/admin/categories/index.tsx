@@ -1,6 +1,6 @@
 import { Button, Card } from "@mui/material";
 import Appbar from "ui/components/Appbar";
-import GlobalStyles from "../../lib/Globalstyles";
+import GlobalStyles from "../../../../../../packages/lib/Globalstyles";
 import Category from "ui/components/category";
 import Router from "next/router";
 export default function () {

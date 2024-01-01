@@ -1,6 +1,6 @@
 import { Button, Typography } from "@mui/material";
 import Router from "next/router";
-import GlobalStyles from "../lib/Globalstyles";
+import GlobalStyles from "../../../../../packages/lib/Globalstyles";
 import { AppProps } from "next/app";
 
 export default function Home() {

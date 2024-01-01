@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { Admin } from "db";
 import jwt from "jsonwebtoken";
-import { ensureDbConnected } from "../lib/dbconnect";
+import { ensureDbConnected } from "../../../../../packages/lib/dbconnect";
 const SecretKey = "e-commerce";
 type Data = {
   token?: string;

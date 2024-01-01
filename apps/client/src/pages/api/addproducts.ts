@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import { Admin, Product } from "db";
 import jwt from "jsonwebtoken";
 import { NextApiRequest, NextApiResponse } from "next";
-import { ensureDbConnected } from "../lib/dbconnect";
+import { ensureDbConnected } from "../../../../../packages/lib/dbconnect";
 interface Product {
   title: string;
   description: string;

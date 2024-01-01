@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { CircularProgress, Button } from "@mui/material";
 import Appbar from "ui/components/Appbar";
-import GlobalStyles from "@/pages/lib/Globalstyles";
+import GlobalStyles from "../../../../../../../packages/lib/Globalstyles";
 export default function () {
   const router = useRouter();
   const { slug } = router.query;

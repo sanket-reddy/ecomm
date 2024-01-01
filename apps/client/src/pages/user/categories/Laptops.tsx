@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Laptop from "ui/components/Laptop";
 import { CircularProgress } from "@mui/material";
-import GlobalStyles from "@/pages/lib/Globalstyles";
+import GlobalStyles from "../../../../../../packages/lib/Globalstyles";
 import Appbar from "ui/components/Appbar";
 interface LaptopDetial {
   title: string;

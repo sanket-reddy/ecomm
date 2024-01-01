@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { LaptopsDescription } from "db";
 import { Laptops } from "db";
-import { ensureDbConnected } from "../lib/dbconnect";
+import { ensureDbConnected } from "../../../../../packages/lib/dbconnect";
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   await ensureDbConnected();
   const title = req.body.title;

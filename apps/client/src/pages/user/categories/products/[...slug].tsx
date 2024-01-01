@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Button, CircularProgress } from "@mui/material";
 import Appbar from "ui/components/Appbar";
-import GlobalStyles from "@/pages/lib/Globalstyles";
+import GlobalStyles from "../../../../../../../packages/lib/Globalstyles";
+import Category from "ui/components/category";
 export default function () {
   const router = useRouter();
   const { slug } = router.query;
@@ -60,8 +61,19 @@ export default function () {
             <h3>₹ {price}</h3>
             <Button
               style={{ backgroundColor: "#415A9E", color: "white" }}
-              onClick={() => {
-                alert("Congratulations you have bougth the item ");
+              onClick={async () => {
+                let response = await axios.post("../../../api/buyproduct", {
+                  token,
+                  title,
+                  category: "Laptops",
+                });
+                if (response.status === 200) {
+                  alert("you have successfully added the product");
+                  console.log(response.data);
+                } else {
+                  alert("error has occured");
+                  // console.log("error : ", error);
+                }
               }}
             >
               BUY NOW
@@ -81,6 +93,8 @@ export default function () {
                 });
                 if (response.status === 200) {
                   alert("the item has been added successfully to the cart");
+                } else {
+                  alert("error occured while adding product");
                 }
               }}
             >

@@ -27,6 +27,7 @@
     "@types/mongoose": "^5.11.97",
     "@types/next": "^9.0.0",
     "core-js-pure": "^3.34.0",
+    "lib": "^1.1.0",
     "mongoose": "^8.0.0",
     "next": "^14.0.3",
     "node": "^21.1.0",

@@ -1,27 +1,26 @@
 import { NextApiRequest, NextApiResponse } from "next";
+import jwt from "jsonwebtoken";
 import { ensureDbConnected } from "../../../../../packages/lib/dbconnect";
 import { Laptops, User } from "db";
-import jwt from "jsonwebtoken";
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
   await ensureDbConnected();
-  const token = req.body.token;
-  const username = jwt.decode(token);
-  const title = req.body.title;
-  const category = req.body.category;
+  let { token, title, category } = req.body;
+  let username = jwt.decode(token);
   const user = await User.findOne({ username });
-  if (category == "Laptops") {
-    const Laptop = await Laptops.findOne({ title });
-    let product = Laptop;
+  if (category === "Laptops") {
+    let product = await Laptops.findOne({ title });
     product.category = "Laptops";
-    user.Cart.push(product);
+    user.Products.push(product);
     try {
       await user.save();
-      res.status(200).send("the item has been added succesfully into the cart");
+      res.status(200).send("You have bought the product successfully");
     } catch (error) {
-      console.log("Error : ", error);
+      console.log("error", error);
     }
+  } else {
+    res.status(201).send("the category is not added yet");
   }
 }

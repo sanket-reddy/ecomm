@@ -1,4 +1,4 @@
-import GlobalStyles from "../../lib/Globalstyles";
+import GlobalStyles from "../../../../../../packages/lib/Globalstyles";
 import Appbar from "ui/components/Appbar";
 import { Button } from "@mui/material";
 import { useEffect, useState } from "react";

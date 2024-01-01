@@ -1,6 +1,6 @@
 import { Button, CircularProgress } from "@mui/material";
 import Appbar from "ui/components/Appbar";
-import GlobalStyles from "@/pages/lib/Globalstyles";
+import GlobalStyles from "../../../../../../packages/lib/Globalstyles";
 import Router from "next/router";
 import Laptop from "ui/components/Laptop";
 import { useState, useEffect } from "react";
