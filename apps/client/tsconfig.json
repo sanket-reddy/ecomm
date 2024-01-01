@@ -17,11 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "src/pages/user/apicalls"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/apicalls"],
   "exclude": ["node_modules"]
 }

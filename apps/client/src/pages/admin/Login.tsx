@@ -1,5 +1,5 @@
 import { Login } from "ui";
-import Loginfetch from "./apicalls/adminLoginFetch";
+import Loginfetch from "../api/adminLoginFetch";
 export default function AdminLogin() {
   return (
     <>

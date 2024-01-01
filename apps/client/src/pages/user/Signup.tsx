@@ -1,5 +1,5 @@
 import { Signup } from "ui";
-import userSign from "./apicalls/usersignfetch";
+import userSign from "../api/usersignfetch";
 export default function adminSignup() {
   return (
     <div>
