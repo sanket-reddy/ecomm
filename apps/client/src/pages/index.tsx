@@ -1,8 +1,17 @@
 import { Button, Typography } from "@mui/material";
 import Router from "next/router";
 import GlobalStyles from "../../../../packages/lib/Globalstyles";
-import { AppProps } from "next/app";
+import Head from "next/head";
 
+const Page = () => {
+  return (
+    <div>
+      <Head>
+        <link rel="icon" href="logo.jpeg"></link>
+      </Head>
+    </div>
+  );
+};
 export default function Home() {
   return (
     <>

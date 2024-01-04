@@ -17,7 +17,7 @@ export default function Laptop(props: laptopDetials) {
           <img src={props.img} style={{ width: "300px" }}></img>
         </div>
         <div style={{ marginLeft: "10px" }}>
-          <h2>{props.title}</h2>`
+          <h2>{props.title}</h2>
           <h5>Rating : 4.9 ⭐ </h5>
           <h3>₹ {props.price}</h3>
           <Button
