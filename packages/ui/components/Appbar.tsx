@@ -15,7 +15,10 @@ export default function Appbar(props: ClientType) {
 
   if (props.ClientType === "user") {
     return (
-      <AppBar position="static" style={{ backgroundColor: "#2E3033" }}>
+      <AppBar
+        position="static"
+        style={{ backgroundColor: "#2E3033", width: "full" }}
+      >
         <Toolbar>
           <div
             style={{

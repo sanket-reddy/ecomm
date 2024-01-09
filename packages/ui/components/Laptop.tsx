@@ -10,6 +10,8 @@ interface laptopDetials {
 export default function Laptop(props: laptopDetials) {
   const productId = 124;
   const title = props.title;
+  const priceAsNumber = Number(props.price);
+  const formattedPrice = priceAsNumber.toLocaleString();
   return (
     <>
       <Card style={{ display: "flex", margin: "10px", padding: "5px" }}>
@@ -19,7 +21,7 @@ export default function Laptop(props: laptopDetials) {
         <div style={{ marginLeft: "10px" }}>
           <h2>{props.title}</h2>
           <h5>Rating : 4.9 ⭐ </h5>
-          <h3>₹ {props.price}</h3>
+          <h3>₹ {formattedPrice}</h3>
           <Button
             variant="contained"
             style={{ backgroundColor: "#415A9E" }}

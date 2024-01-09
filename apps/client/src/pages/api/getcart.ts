@@ -9,7 +9,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   const username = jwt.decode(token);
   const user = await User.findOne({ username });
   if (!user) {
-    res.send("no user found");
+    res.status(201).send("no user found");
   } else {
     const cart = user.Cart;
     if (cart === null) {

@@ -44,6 +44,8 @@ export default function () {
       </>
     );
   } else {
+    const priceAsNumber = Number(price);
+    const formattedPrice = priceAsNumber.toLocaleString();
     return (
       <>
         <GlobalStyles></GlobalStyles>
@@ -58,7 +60,7 @@ export default function () {
             }}
           >
             <h2>{title}</h2>
-            <h3>₹ {price}</h3>
+            <h3>₹ {formattedPrice}</h3>
             <Button
               style={{ backgroundColor: "#415A9E", color: "white" }}
               onClick={async () => {
@@ -68,11 +70,10 @@ export default function () {
                   category: "Laptops",
                 });
                 if (response.status === 200) {
-                  alert("you have successfully added the product");
+                  alert("you have successfully bought the product");
                   console.log(response.data);
                 } else {
                   alert("error has occured");
-                  // console.log("error : ", error);
                 }
               }}
             >
@@ -85,7 +86,6 @@ export default function () {
                 marginLeft: "10px",
               }}
               onClick={async () => {
-                console.log("khauher");
                 let response = await axios.post("../../../api/addtoCart", {
                   token,
                   title,

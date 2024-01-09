@@ -11,6 +11,7 @@ interface productDetials {
   img?: string;
   price?: string;
   category?: string;
+  token?: string;
 }
 
 export default function () {
@@ -27,24 +28,25 @@ export default function () {
     if (typeof window !== "undefined") {
       const storedToken: string = localStorage.getItem("token") ?? "";
       setToken(storedToken);
-    }
-  }, []);
-  useEffect(() => {
-    const fetchCart = async () => {
-      let response = await axios.post("../api/getcart", {
-        token,
-      });
+      const fetchCart = async () => {
+        let response = await axios.post("../api/getcart", {
+          token,
+        });
 
-      if (Array.isArray(response.data)) {
-        setProduct(response.data);
-      } else {
-        console.error("API response is not an array:", response.data);
-      }
-    };
-    fetchCart();
+        if (Array.isArray(response.data)) {
+          setProduct(response.data);
+          console.log("got the products");
+        } else {
+          console.log("didn't yet get the array :", response.data);
+        }
+      };
+      fetchCart();
+    }
   }, [token]);
+  // useEffect(() => {}, [token]);
 
   if (product) {
+    let formattedPrice = cartprice.toLocaleString();
     return (
       <>
         <GlobalStyles></GlobalStyles>
@@ -57,10 +59,11 @@ export default function () {
               title={item.title}
               img={item.img}
               price={item.price}
+              token={token}
             ></Product>
           ))}
           <h1>TOTAL PRICE OF CART</h1>
-          <h2>{cartprice}</h2>
+          <h2>{formattedPrice}</h2>
         </div>
       </>
     );
@@ -78,14 +81,33 @@ export default function () {
 }
 
 function Product(props: productDetials) {
+  let token = props.token;
+  let title = props.title;
+  const priceAsNumber = Number(props.price);
+  const formattedPrice = priceAsNumber.toLocaleString();
   return (
     <>
       <Card style={{ display: "flex", marginBottom: "14px" }}>
         <img src={props.img} style={{ height: "300px" }}></img>
         <div style={{ marginLeft: "10px", backgroundColor: "white" }}>
           <h2>{props.title}</h2>
-          <h3>₹ {props.price}</h3>
-          <Button variant="contained" style={{ backgroundColor: "#415A9E" }}>
+          <h3>₹ {formattedPrice}</h3>
+          <Button
+            variant="contained"
+            style={{ backgroundColor: "#415A9E" }}
+            onClick={async () => {
+              let response = await axios.post("../../../api/buyproduct", {
+                token,
+                title,
+                category: "Laptops",
+              });
+              if (response.status === 200) {
+                alert("you have successfully bought the product");
+              } else {
+                alert("error has occured");
+              }
+            }}
+          >
             BUY NOW
           </Button>
           <Button
