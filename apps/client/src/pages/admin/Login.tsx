@@ -1,9 +1,9 @@
-import { Login } from "ui";
+import { Form, Login } from "ui";
 import Loginfetch from "../api/adminLoginFetch";
 export default function AdminLogin() {
   return (
     <>
-      <Login Type="Admin" onClick={Loginfetch}></Login>
+      <Form type="ADMIN" function="LOGIN" onClick={Loginfetch}></Form>
     </>
   );
 }

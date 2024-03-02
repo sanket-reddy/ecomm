@@ -1,9 +1,9 @@
-import { Signup } from "ui";
+import { Signup, Form } from "ui";
 import userSign from "../api/usersignfetch";
 export default function adminSignup() {
   return (
     <div>
-      <Signup userType="User" onClick={userSign}></Signup>
+      <Form type="USER" function="SIGNUP" onClick={userSign}></Form>
     </div>
   );
 }

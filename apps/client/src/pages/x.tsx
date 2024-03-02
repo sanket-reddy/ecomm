@@ -1,4 +1,4 @@
-import { Test } from "ui";
+import { Form } from "ui";
 import Loginfetch from "./api/userLoginfetch";
 export default function AdminLogin() {
   return (
@@ -6,7 +6,7 @@ export default function AdminLogin() {
       {/* <Login Type="User" onClick={Loginfetch}></Login> */}
       {/* <h1 className="font-bold">dfkheo</h1>
        */}
-      <Test type="USER" function="LOGIN" onClick={Loginfetch} />
+      <Form type="USER" function="LOGIN" onClick={Loginfetch} />
     </>
   );
 }
