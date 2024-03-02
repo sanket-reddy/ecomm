@@ -22,18 +22,18 @@ export default function page() {
           <button
             className="bg-teal-500 p-3 mx-2 w-40 rounded-lg shadow-md hover:bg-teal-700"
             onClick={() => {
-              Router.push("/user");
+              Router.push("/user/Signup");
             }}
           >
-            User
+            Signup
           </button>
           <button
             className="bg-teal-500 p-3 w-40 rounded-lg shadow-md hover:bg-teal-700"
             onClick={() => {
-              Router.push("/admin");
+              Router.push("/user/Login");
             }}
           >
-            Admin
+            Login
           </button>
         </div>
       </div>

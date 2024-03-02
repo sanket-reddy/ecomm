@@ -1,78 +1,42 @@
-import { Button, Typography } from "@mui/material";
+import { Route } from "@mui/icons-material";
+import Image from "next/image";
 import Router from "next/router";
-import GlobalStyles from "../../../../../packages/lib/Globalstyles";
-import { AppProps } from "next/app";
 
-export default function Home() {
+export default function page() {
   return (
-    <>
-      <GlobalStyles></GlobalStyles>
-      <div style={{ display: "flex", margin: 0, padding: 0 }}>
-        <div
-          style={{
-            backgroundColor: "#2E3033",
-            height: "100vh",
-            width: "50vw",
-            padding: 0,
-            margin: 0,
-          }}
-          className="logobox"
-        >
-          <img
-            src="/logo.jpeg"
-            style={{ height: "300px", marginLeft: "135px", marginTop: "70px" }}
-          ></img>
-          <br></br>
-          <br></br>
-
-          <Typography
-            variant="h2"
-            fontFamily={"arial"}
-            marginLeft={"105px"}
-            color={"#E5E1E6"}
+    <div className="sm:grid grid-cols-12 min-h-screen">
+      <div className="bg-zinc-800 h-1/2 p-3 flex flex-col items-center justify-center sm:min-h-screen col-span-6">
+        {/* <img src="/logo.jpeg" className=""></img> */}
+        <Image
+          src="/logo.jpeg"
+          alt="logo"
+          width={250}
+          height={250}
+          className="shadow-lg h-1/2 w-1/2"
+        ></Image>
+        <h1 className="text-gray-300 text-3xl mt-3 font-bold ">GADGETHUB</h1>
+      </div>
+      <div className="bg-[#E5E1E6] h-[500px] sm:min-h-screen col-span-6 flex flex-col justify-center items-center">
+        <h1 className=" font-bold text-2xl">WELCOME TO GADGETHUB</h1>
+        <div className="m-2">
+          <button
+            className="bg-teal-500 p-3 mx-2 w-40 rounded-lg shadow-md hover:bg-teal-700"
+            onClick={() => {
+              Router.push("/user/Signup");
+            }}
           >
-            GADGETHUB
-          </Typography>
-        </div>
-        <div
-          style={{
-            backgroundColor: "#E5E1E6",
-            height: "100vh",
-            width: "50vw",
-          }}
-        >
-          <div style={{ marginTop: "220px", marginLeft: "160px" }}>
-            <h1 className="font-bold">Welcome to GadgetHub</h1>
-            <h2></h2>
-            <Button
-              variant="outlined"
-              style={{
-                marginLeft: "40px",
-                backgroundColor: "#2E3033",
-                color: "white",
-              }}
-              onClick={() => {
-                Router.push("user/Signup");
-              }}
-            >
-              Signup
-            </Button>
-            <Button
-              variant="outlined"
-              style={{
-                marginLeft: "40px",
-                backgroundColor: "#2E3033",
-                color: "white",
-              }}
-              onClick={() => {
-                Router.push("user/Login");
-              }}
-            >
-              Login
-            </Button>
-          </div>
+            Signup
+          </button>
+          <button
+            className="bg-teal-500 p-3 w-40 rounded-lg shadow-md hover:bg-teal-700"
+            onClick={() => {
+              Router.push("/user/Login");
+            }}
+          >
+            Login
+          </button>
         </div>
       </div>
-    </>
+    </div>
   );
 }
