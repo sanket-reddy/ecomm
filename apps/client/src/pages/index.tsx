@@ -4,8 +4,8 @@ import Router from "next/router";
 
 export default function page() {
   return (
-    <div className="sm:grid grid-cols-12">
-      <div className="bg-zinc-800 min-h-[330px] flex flex-col items-center justify-center sm:min-h-screen col-span-6">
+    <div className="sm:grid  bg-[#E5E1E6] grid-cols-12 min-h-screen">
+      <div className="bg-zinc-800 h-1/2 p-3 flex flex-col items-center justify-center sm:min-h-screen col-span-6">
         {/* <img src="/logo.jpeg" className=""></img> */}
         <Image
           src="/logo.jpeg"
@@ -16,7 +16,7 @@ export default function page() {
         ></Image>
         <h1 className="text-gray-300 text-3xl mt-3 font-bold ">GADGETHUB</h1>
       </div>
-      <div className="bg-[#E5E1E6] min-h-[342px] sm:min-h-screen col-span-6 flex flex-col justify-center items-center">
+      <div className=" h-[500px] sm:min-h-screen col-span-6 flex flex-col justify-center items-center">
         <h1 className=" font-bold text-2xl">WELCOME TO GADGETHUB</h1>
         <div className="m-2">
           <button
