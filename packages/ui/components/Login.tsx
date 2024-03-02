@@ -1,41 +1,57 @@
-import { TextField } from "@mui/material";
+"use client";
+import { Card, TextField, Button } from "@mui/material";
 import { useState } from "react";
-export function Test(props: {
-  type: "USER" | "ADMIN";
-  function: "LOGIN" | "SIGNUP";
+
+interface detials {
+  Type: string;
   onClick: (username: string, password: string) => Promise<boolean>;
-}) {
+}
+export function Login(props: detials) {
   const [username, setusername] = useState<string>("");
   const [password, setpassword] = useState<string>("");
   const [info, setinfo] = useState<string>("");
+
   return (
-    <div className="min-h-screen">
-      <div className="card flex bg-gray-200 min-h-screen justify-center items-center  flex-col gap-5 ">
-        <h1 className="font-bold text-3xl">WELCOME TO GADGETHUB </h1>
-        <h1 className="text-2xl">
-          {props.function} BELOW {props.type}
-        </h1>
+    <div className=" flex items-center justify-center ">
+      <h1 style={{ marginTop: "140px", marginLeft: "470px" }}>
+        WELCOME TO E-COM
+      </h1>
+      <h2 style={{ marginTop: "10px", marginLeft: "475px" }}>
+        LOGIN BELOW HERE {props.Type}
+      </h2>
+      <Card
+        style={{
+          height: "220px",
+          width: "400px",
+          marginLeft: "450px",
+          marginTop: "8px",
+          backgroundColor: "#F8F9FA",
+          padding: "14px",
+        }}
+      >
         <TextField
-          id="outlined-basic"
-          label="email"
           variant="outlined"
-          className="w-1/2 lg:w-1/4"
+          label="username"
+          style={{ marginLeft: "8px", marginTop: "3px", width: "370px" }}
           onChange={(e) => {
             setusername(e.target.value);
           }}
-        />
+        ></TextField>
+
         <TextField
-          id="outlined-basic"
-          className="w-1/2 lg:w-1/4"
+          variant="outlined"
           label="password"
           type="password"
-          variant="outlined"
+          style={{ marginLeft: "8px", marginTop: "7px", width: "370px" }}
           onChange={(e) => {
             setpassword(e.target.value);
           }}
-        />
-        <button
-          className="bg-teal-500 font-bold shadow-lg hover:bg-teal-700 p-3 w-40 rounded-md"
+        ></TextField>
+        <br></br>
+        <br></br>
+        <Button
+          variant="contained"
+          style={{ marginLeft: "8px", width: "100px", height: "30px" }}
           onClick={async () => {
             let x = await props.onClick(username, password);
             setinfo("");
@@ -44,10 +60,10 @@ export function Test(props: {
             }
           }}
         >
-          {props.function}
-        </button>
-        <h1>{info}</h1>
-      </div>
+          LOGIN
+        </Button>
+        <h4>{info}</h4>
+      </Card>
     </div>
   );
 }
