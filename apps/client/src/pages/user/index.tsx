@@ -42,7 +42,7 @@ export default function Home() {
           }}
         >
           <div style={{ marginTop: "220px", marginLeft: "160px" }}>
-            <h1>Welcome to GadgetHub</h1>
+            <h1 className="font-bold">Welcome to GadgetHub</h1>
             <h2></h2>
             <Button
               variant="outlined"
