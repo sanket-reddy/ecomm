@@ -4,6 +4,7 @@ import Appbar from "ui/components/Appbar";
 import axios from "axios";
 import Laptop from "ui/components/Laptop";
 import { Button, Card, CircularProgress } from "@mui/material";
+import Link from "next/link";
 
 interface productDetials {
   title?: string;
@@ -35,7 +36,6 @@ export default function () {
 
         if (Array.isArray(response.data)) {
           setProduct(response.data);
-          console.log("got the products");
         } else {
           console.log("didn't yet get the array :", response.data);
         }
@@ -52,7 +52,7 @@ export default function () {
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
         <div style={{ backgroundColor: "#eeeeee", padding: "10px" }}>
-          <h1>Check out the Card</h1>
+          <h1 className="text-2xl">Check out the Card</h1>
           {product.map((item) => (
             <Product
               key={item.title}
@@ -62,8 +62,8 @@ export default function () {
               token={token}
             ></Product>
           ))}
-          <h1>TOTAL PRICE OF CART</h1>
-          <h2>{formattedPrice}</h2>
+          <h1 className="text-2xl">TOTAL PRICE OF CART</h1>
+          <h2 className="text-2xl font-bold">{formattedPrice}</h2>
         </div>
       </>
     );
@@ -72,9 +72,9 @@ export default function () {
       <>
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <center>
+        <div className="flex items-center justify-center">
           <CircularProgress style={{ marginTop: "210px" }}></CircularProgress>
-        </center>
+        </div>
       </>
     );
   }
@@ -85,41 +85,42 @@ function Product(props: productDetials) {
   let title = props.title;
   const priceAsNumber = Number(props.price);
   const formattedPrice = priceAsNumber.toLocaleString();
+  const encodedTitle = encodeURIComponent(props.title || "");
   return (
     <>
-      <Card style={{ display: "flex", marginBottom: "14px" }}>
-        <img src={props.img} style={{ height: "300px" }}></img>
-        <div style={{ marginLeft: "10px", backgroundColor: "white" }}>
-          <h2>{props.title}</h2>
-          <h3>₹ {formattedPrice}</h3>
-          <Button
-            variant="contained"
-            style={{ backgroundColor: "#415A9E" }}
-            onClick={async () => {
-              let response = await axios.post("../../../api/buyproduct", {
-                token,
-                title,
-                category: "Laptops",
-              });
-              if (response.status === 200) {
-                alert("you have successfully bought the product");
-              } else {
-                alert("error has occured");
-              }
-            }}
-          >
-            BUY NOW
-          </Button>
-          <Button
-            variant="contained"
-            style={{ marginLeft: "8px", backgroundColor: "#415A9E" }}
-          >
-            REMOVE
-          </Button>
-          <br></br>
-          <br></br>
+      <div className="bg-white my-5  flex flex-col items-center justify-center shadow-md p-3  sm:flex-row">
+        <img src={props.img} className="h-[200px] sm:h-[300px]"></img>
+        <div>
+          <Link href={`categories/products/${encodedTitle}`}>
+            <h2 className="sm:text-2xl hover:underline hover:font-semibold">
+              {props.title}
+            </h2>
+          </Link>
+          <h1 className="text-2xl font-bold my-2"> ₹ {formattedPrice}</h1>
+          <div className="flex gap-4">
+            <button
+              className="bg-teal-500 p-2 rounded-lg font-bold hover:bg-teal-700"
+              onClick={async () => {
+                let response = await axios.post("../../../api/buyproduct", {
+                  token,
+                  title,
+                  category: "Laptops",
+                });
+                if (response.status === 200) {
+                  alert("you have successfully bought the product");
+                } else {
+                  alert("error has occured");
+                }
+              }}
+            >
+              BUY NOW
+            </button>
+            <button className="bg-teal-500 p-2 rounded-lg font-bold hover:bg-teal-700">
+              REMOVE
+            </button>
+          </div>
         </div>
-      </Card>
+      </div>
     </>
   );
 }

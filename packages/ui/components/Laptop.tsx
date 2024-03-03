@@ -15,7 +15,7 @@ export default function Laptop(props: laptopDetials) {
   const encodedTitle = encodeURIComponent(props.title || "");
   return (
     <>
-      <div className=" bg-white shadow-lgs p-4 m-5 flex flex-col items-center justify-center  sm:flex sm:flex-row">
+      <div className=" bg-white shadow-lg p-4 m-5 flex flex-col items-center justify-center  sm:flex sm:flex-row">
         <img src={props.img} className="h-[200px] sm:h-[300px]"></img>
         <div>
           <Link href={`products/${encodedTitle}`}>
