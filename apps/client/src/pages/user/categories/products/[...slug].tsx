@@ -50,7 +50,7 @@ export default function () {
       <>
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <div style={{ display: "flex" }}>
+        {/* <div style={{ display: "flex" }}>
           <img src={img} style={{ height: "500px", marginLeft: "30px" }}></img>
           <div
             style={{
@@ -101,6 +101,51 @@ export default function () {
               ADD TO CART
             </Button>
             <h5>{desc}</h5>
+          </div>
+        </div>*/}
+        <div className="mx-5 flex flex-col sm:flex-row items-center justify-center h-min-[500px]">
+          <img src={img} className="h-[350px] sm:h-[500px]"></img>
+          <div className="flex flex-col gap-5 mt-3">
+            <h2 className="sm:text-2xl font-semibold">{title}</h2>
+            <h3 className="text-3xl font-bold">₹{price}</h3>
+            <div>
+              <button
+                className="bg-teal-500 p-3 w-40 rounded-lg shadow-md hover:bg-teal-700 font-bold "
+                onClick={async () => {
+                  let response = await axios.post("../../../api/addtoCart", {
+                    token,
+                    title,
+                    category: "Laptops",
+                  });
+                  if (response.status === 200) {
+                    alert("the item has been added successfully to the cart");
+                  } else {
+                    alert("error occured while adding product");
+                  }
+                }}
+              >
+                ADD TO CART
+              </button>
+              <button
+                className="bg-teal-500 p-3 w-40 rounded-lg shadow-md hover:bg-teal-700 mx-3 font-bold"
+                onClick={async () => {
+                  let response = await axios.post("../../../api/buyproduct", {
+                    token,
+                    title,
+                    category: "Laptops",
+                  });
+                  if (response.status === 200) {
+                    alert("you have successfully bought the product");
+                    console.log(response.data);
+                  } else {
+                    alert("error has occured");
+                  }
+                }}
+              >
+                BUY NOW
+              </button>
+            </div>
+            <h3>{desc}</h3>
           </div>
         </div>
       </>
