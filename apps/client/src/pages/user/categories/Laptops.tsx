@@ -43,9 +43,9 @@ export default function () {
       <>
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <CircularProgress
-          style={{ marginLeft: "600px", marginTop: "250px" }}
-        ></CircularProgress>
+        <div className="flex items-center justify-center">
+          <CircularProgress></CircularProgress>
+        </div>
       </>
     );
   }
