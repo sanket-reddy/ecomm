@@ -19,7 +19,9 @@ export default function Categories() {
       <div>
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <h2 style={{ marginLeft: "10px" }}>SELECT THE CATEGORY TO BUY</h2>
+        <h2 className="text-2xl font-serif sm:flex justify-center ">
+          SELECT THE CATEGORY TO BUY
+        </h2>
         <div
           style={{
             display: "flex",

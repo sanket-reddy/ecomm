@@ -1,6 +1,8 @@
 import { Card, Button } from "@mui/material";
 import Router from "next/router";
 import Product from "./product";
+import Image from "next/image";
+import Link from "next/link";
 
 interface laptopDetials {
   img?: string;
@@ -8,32 +10,24 @@ interface laptopDetials {
   price?: string;
 }
 export default function Laptop(props: laptopDetials) {
-  const productId = 124;
-  const title = props.title;
   const priceAsNumber = Number(props.price);
   const formattedPrice = priceAsNumber.toLocaleString();
+  const encodedTitle = encodeURIComponent(props.title || "");
   return (
     <>
-      <Card style={{ display: "flex", margin: "10px", padding: "5px" }}>
+      <div className=" bg-white shadow-lgs p-4 m-5 flex flex-col items-center justify-center  sm:flex sm:flex-row">
+        <img src={props.img} className="h-[200px] "></img>
         <div>
-          <img src={props.img} style={{ width: "300px" }}></img>
+          <Link href={`products/${encodedTitle}`}>
+            <h2 className="sm:text-2xl hover:underline hover:font-semibold">
+              {props.title}
+            </h2>
+          </Link>
+
+          <h2 className="font-bold text-2xl my-3">₹ {formattedPrice}</h2>
+          {/* <button>SEE MORE</button> */}
         </div>
-        <div style={{ marginLeft: "10px" }}>
-          <h2>{props.title}</h2>
-          <h5>Rating : 4.9 ⭐ </h5>
-          <h3>₹ {formattedPrice}</h3>
-          <Button
-            variant="contained"
-            style={{ backgroundColor: "#415A9E" }}
-            onClick={() => {
-              const encodedTitle = encodeURIComponent(props.title || "");
-              Router.push(`products/${encodedTitle}`);
-            }}
-          >
-            SEE MORE
-          </Button>
-        </div>
-      </Card>
+      </div>
     </>
   );
 }

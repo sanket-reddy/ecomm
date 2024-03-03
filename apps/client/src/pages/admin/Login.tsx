@@ -1,4 +1,4 @@
-import { Form, Login } from "ui";
+import { Form } from "ui";
 import Loginfetch from "../api/adminLoginFetch";
 export default function AdminLogin() {
   return (
