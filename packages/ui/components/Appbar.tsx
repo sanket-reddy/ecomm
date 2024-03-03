@@ -22,13 +22,14 @@ export default function Appbar(props: ClientType) {
         <Toolbar>
           <div
             style={{
-              display: "flex",
+              // display: "flex",
               justifyContent: "space-between",
               width: "100%",
               padding: "15px",
             }}
+            className="flex justify-center items-center"
           >
-            <div style={{ display: "flex" }}>
+            <div className="flex items-center justify-center">
               <img
                 src="/logo.jpeg"
                 style={{ height: "60px" }}
@@ -55,14 +56,20 @@ export default function Appbar(props: ClientType) {
                   Router.push("/user/cart");
                 }}
               />
-              <div>
-                <Button
+              <div className="flex items-center justify-center">
+                {/* <Button
                   variant="contained"
                   onClick={handleLogout}
                   style={{ backgroundColor: "#415A9E", marginTop: "13px" }}
                 >
                   Logout
-                </Button>
+                </Button> */}
+                <button
+                  onClick={handleLogout}
+                  className="bg-teal-500 p-4 rounded-md shadow-md font-bold text-black hover:bg-teal-700"
+                >
+                  LOGOUT
+                </button>
               </div>
             </div>
           </div>

@@ -16,7 +16,7 @@ export default function Laptop(props: laptopDetials) {
   return (
     <>
       <div className=" bg-white shadow-lgs p-4 m-5 flex flex-col items-center justify-center  sm:flex sm:flex-row">
-        <img src={props.img} className="h-[200px] "></img>
+        <img src={props.img} className="h-[200px] sm:h-[300px]"></img>
         <div>
           <Link href={`products/${encodedTitle}`}>
             <h2 className="sm:text-2xl hover:underline hover:font-semibold">
@@ -24,8 +24,9 @@ export default function Laptop(props: laptopDetials) {
             </h2>
           </Link>
 
-          <h2 className="font-bold text-2xl my-3">₹ {formattedPrice}</h2>
-          {/* <button>SEE MORE</button> */}
+          <h2 className="font-bold text-2xl sm:text-3xl my-3">
+            ₹ {formattedPrice}
+          </h2>
         </div>
       </div>
     </>

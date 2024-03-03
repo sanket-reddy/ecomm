@@ -22,14 +22,7 @@ export default function Categories() {
         <h2 className="text-2xl font-serif sm:flex justify-center ">
           SELECT THE CATEGORY TO BUY
         </h2>
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            marginLeft: "35px",
-            marginTop: "5px",
-          }}
-        >
+        <div className="flex flex-wrap items-center justify-center gap-2">
           <Category img="/category/LAPTOPS.png" next_page="Laptops"></Category>
           <Category
             img="/category/HEADPHONE.png"
