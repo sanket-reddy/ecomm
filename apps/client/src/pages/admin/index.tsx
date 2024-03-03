@@ -6,7 +6,6 @@ export default function page() {
   return (
     <div className="sm:grid  bg-[#E5E1E6] grid-cols-12 min-h-screen">
       <div className="bg-zinc-800 h-1/2 p-3 flex flex-col items-center justify-center sm:min-h-screen col-span-6">
-        {/* <img src="/logo.jpeg" className=""></img> */}
         <Image
           src="/logo.jpeg"
           alt="logo"
@@ -20,7 +19,7 @@ export default function page() {
         <h1 className=" font-bold text-2xl">WELCOME TO GADGETHUB</h1>
         <div className="m-2">
           <button
-            className="bg-teal-500 p-3 mx-2 w-40 rounded-lg shadow-md hover:bg-teal-700"
+            className="bg-teal-500 font-bold p-3 mx-2 w-40 rounded-lg shadow-md hover:bg-teal-700"
             onClick={() => {
               Router.push("/admin/Signup");
             }}
@@ -28,7 +27,7 @@ export default function page() {
             Signup
           </button>
           <button
-            className="bg-teal-500 p-3 w-40 rounded-lg shadow-md hover:bg-teal-700"
+            className="bg-teal-500 p-3 w-40 font-bold rounded-lg shadow-md hover:bg-teal-700"
             onClick={() => {
               Router.push("/admin/Login");
             }}

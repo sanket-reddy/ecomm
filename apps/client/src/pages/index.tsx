@@ -20,7 +20,7 @@ export default function page() {
         <h1 className=" font-bold text-2xl">WELCOME TO GADGETHUB</h1>
         <div className="m-2">
           <button
-            className="bg-teal-500 p-3 mx-2 w-40 rounded-lg shadow-md hover:bg-teal-700"
+            className="bg-teal-500 font-bold p-3 mx-2 w-40 rounded-lg shadow-md hover:bg-teal-700"
             onClick={() => {
               Router.push("/user");
             }}
@@ -28,7 +28,7 @@ export default function page() {
             User
           </button>
           <button
-            className="bg-teal-500 p-3 w-40 rounded-lg shadow-md hover:bg-teal-700"
+            className="bg-teal-500 font-bold p-3 w-40 rounded-lg shadow-md hover:bg-teal-700"
             onClick={() => {
               Router.push("/admin");
             }}
