@@ -15,7 +15,8 @@
     "turbo": "^1.12.4"
   },
   "name": "site-1",
-  "packageManager": "npm@8.19.3",
+  "packageManager": "yarn@1.22.21",
+
   "workspaces": [
     "apps/*",
     "packages/*"

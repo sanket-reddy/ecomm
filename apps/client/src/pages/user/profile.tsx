@@ -43,7 +43,10 @@ const profile = () => {
       <div>
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <CircularProgress></CircularProgress>
+        <div className="min-h-screen flex flex-col gap-3  justify-center items-center">
+          <CircularProgress className="h-[300px]"></CircularProgress>
+          <h1 className="text-3xl">Loading...</h1>
+        </div>
       </div>
     );
   } else if (Products.length === 0) {

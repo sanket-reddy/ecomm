@@ -37,7 +37,7 @@ export default function () {
       <>
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center min-h-screen">
           <CircularProgress></CircularProgress>
         </div>
       </>

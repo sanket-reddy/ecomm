@@ -15,6 +15,7 @@ const laptopSchema = new Schema({
   description: { type: String },
   price: { type: Number },
   img: { type: String },
+  rating: { type: Number },
 });
 
 const laptopDescriptionSchema = new Schema({
@@ -37,6 +38,14 @@ const adminSchema = new Schema({
   LaptopsDescription: [laptopDescriptionSchema],
 });
 
+const random = new Schema({
+  title: { type: String },
+  description: { type: String },
+  rating: { type: Number, default: 0 },
+  img: { type: String },
+  price: { type: String },
+});
+
 export const Admin =
   mongoose.models?.Admin || mongoose.model("Admin", adminSchema);
 export const Product =
@@ -47,3 +56,6 @@ export const Laptops =
 export const LaptopsDescription =
   mongoose?.models?.LaptopsDescription ||
   mongoose.model("LaptopsDescription", laptopDescriptionSchema);
+
+export const Random =
+  mongoose.models?.Random || mongoose.model("Random", random);

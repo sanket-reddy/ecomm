@@ -18,7 +18,7 @@ export default function Laptop(props: laptopDetials) {
       <div className=" bg-white shadow-lg p-4 m-5 flex flex-col items-center justify-center  sm:flex sm:flex-row">
         <img src={props.img} className="h-[200px] sm:h-[300px]"></img>
         <div>
-          <Link href={`products/${encodedTitle}`}>
+          <Link href={`/user/categories/products/${encodedTitle}`} replace>
             <h2 className="sm:text-2xl hover:underline hover:font-semibold">
               {props.title}
             </h2>
