@@ -56,16 +56,10 @@ export default function () {
               justifyContent: "space-between",
             }}
           >
-            <h2>CHECKOUT YOUR LAPTOPS HERE</h2>
+            <h2 className="text-2xl">Check your Laptops</h2>
             <Button
               variant="contained"
-              style={{
-                backgroundColor: "#415A9E",
-                width: "120px",
-                height: "40px",
-                marginRight: "5px",
-                marginTop: "10px",
-              }}
+              className="bg-teal-500 font-bold text-black hover:bg-teal-700"
               onClick={() => {
                 Router.push("add");
               }}
@@ -98,30 +92,10 @@ export default function () {
   } else if (!Laptops) {
     return (
       <>
-        <GlobalStyles></GlobalStyles>
         <Appbar ClientType="admin"></Appbar>
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <h2>CHECKOUT YOUR LAPTOPS HERE</h2>
-          <Button
-            variant="contained"
-            style={{
-              backgroundColor: "#415A9E",
-              width: "120px",
-              height: "40px",
-              marginRight: "5px",
-              marginTop: "10px",
-            }}
-            onClick={() => {
-              Router.push("add");
-            }}
-          >
-            ADD NEW
-          </Button>
+        <div className="flex justify-center items-center h-screen">
+          <CircularProgress></CircularProgress>
         </div>
-
-        <CircularProgress
-          style={{ marginLeft: "580px", marginTop: "150px" }}
-        ></CircularProgress>
       </>
     );
   }

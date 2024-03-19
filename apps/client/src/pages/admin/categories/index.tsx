@@ -8,26 +8,18 @@ export default function () {
     <>
       <GlobalStyles></GlobalStyles>
       <Appbar ClientType="admin"></Appbar>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <h2 style={{ marginLeft: "15px" }}> SELECT THE CATEGORY BELOW</h2>
-        <Button
-          variant="contained"
-          style={{
-            backgroundColor: "#415A9E",
-            width: "120px",
-            height: "40px",
-            marginRight: "5px",
-            marginTop: "10px",
-          }}
+      <div className="flex justify-between items-center m-2">
+        <h2 className="text-2xl"> check out your products</h2>
+        <button
+          className="bg-teal-500 p-3 w-[120px] rounded-md font-bold shadow-xl hover:bg-teal-700"
           onClick={() => {
-            Router.push("categories/add");
+            Router.push("./addproducts");
           }}
         >
-          ADD NEW
-        </Button>
+          Add new
+        </button>
       </div>
-      <div style={{ marginLeft: "15px" }}>
-        <h1>check out your products</h1>
+      <div className="sm:flex sm:flex-wrap gap-1  ">
         <Category img="/category/LAPTOPS.png" next_page="Laptops"></Category>
         <Category
           img="/category/HEADPHONE.png"

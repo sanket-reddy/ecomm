@@ -1,5 +1,11 @@
 import GlobalStyles from "../../../../../../packages/lib/Globalstyles";
-import { TextField, Button } from "@mui/material";
+import {
+  TextField,
+  Button,
+  FormControl,
+  InputLabel,
+  NativeSelect,
+} from "@mui/material";
 import Appbar from "ui/components/Appbar";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -19,6 +25,8 @@ export default function () {
     }
   }, []);
   async function handleadd() {
+    console.log("clicked");
+    console.log("the category is : ", category);
     try {
       let response = await axios.post(
         "../../api/additem",
@@ -53,14 +61,35 @@ export default function () {
       <Appbar ClientType="admin"></Appbar>
       <div style={{ margin: "30px" }}>
         <h1>Add your product here</h1>
-        <TextField
+        <FormControl fullWidth>
+          <InputLabel variant="standard" htmlFor="uncontrolled-native">
+            Category
+          </InputLabel>
+          <NativeSelect
+            defaultValue={30}
+            inputProps={{
+              name: "age",
+              id: "uncontrolled-native",
+            }}
+            onChange={(e) => {
+              setcategory(e.target.value);
+            }}
+          >
+            <option value="Laptops">Laptops</option>
+            <option value="Moblies">Moblies</option>
+            <option value="Camera">Camera</option>
+          </NativeSelect>
+        </FormControl>
+        <br></br>
+        <br></br>
+        {/* <TextField
           type="contained"
           label="category"
           style={{ width: "700px" }}
           onChange={(e) => {
             setcategory(e.target.value);
           }}
-        ></TextField>
+        ></TextField> */}
         <br></br>
         <br></br>
         <TextField
@@ -106,7 +135,7 @@ export default function () {
         ></TextField>
         <br></br>
         <br></br>
-        <Button variant="contained" onClick={handleadd}>
+        <Button className="bg-teal-500" variant="contained" onClick={handleadd}>
           SUBMIT
         </Button>
       </div>

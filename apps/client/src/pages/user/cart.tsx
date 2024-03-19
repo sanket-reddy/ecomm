@@ -43,7 +43,6 @@ export default function () {
       fetchCart();
     }
   }, [token]);
-  // useEffect(() => {}, [token]);
 
   if (product) {
     let formattedPrice = cartprice.toLocaleString();

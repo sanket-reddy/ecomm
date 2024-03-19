@@ -57,16 +57,9 @@ export default function Appbar(props: ClientType) {
                 }}
               />
               <div className="flex items-center justify-center">
-                {/* <Button
-                  variant="contained"
-                  onClick={handleLogout}
-                  style={{ backgroundColor: "#415A9E", marginTop: "13px" }}
-                >
-                  Logout
-                </Button> */}
                 <button
                   onClick={handleLogout}
-                  className="bg-teal-500 p-4 rounded-md shadow-md font-bold text-black hover:bg-teal-700"
+                  className="bg-teal-500 w-[120px] font-bold text-black p-3 rounded-lg text-lg hover:bg-red-500"
                 >
                   LOGOUT
                 </button>
@@ -80,42 +73,26 @@ export default function Appbar(props: ClientType) {
     return (
       <AppBar position="static" style={{ backgroundColor: "#2E3033" }}>
         <Toolbar>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-              padding: "15px",
-            }}
-          >
-            <div style={{ display: "flex" }}>
+          <div className="flex items-center w-full justify-between p-4">
+            <div className="flex items-center gap-3">
               <img
                 src="/logo.jpeg"
                 style={{ height: "60px" }}
                 onClick={() => {
-                  Router.push("/user/categories");
+                  Router.push("/admin/categories");
                 }}
               ></img>
-
-              <AccountCircleSharpIcon
-                style={{ marginLeft: "20px", marginTop: "3px" }}
-                sx={{ fontSize: 55 }}
-                onClick={() => {
-                  Router.push("/user/profile");
-                }}
-              ></AccountCircleSharpIcon>
+              <h1 className="text-xl font-bold">GADGETHUB</h1>
             </div>
 
-            <div style={{ display: "flex" }}>
-              <div>
-                <Button
-                  variant="contained"
-                  onClick={handleLogout}
-                  style={{ backgroundColor: "#415A9E", marginTop: "13px" }}
-                >
-                  Logout
-                </Button>
-              </div>
+            <div>
+              <Button
+                variant="contained"
+                onClick={handleLogout}
+                className="bg-teal-500 w-[120px] font-bold text-black p-3 rounded-lg text-lg hover:bg-red-500"
+              >
+                Logout
+              </Button>
             </div>
           </div>
         </Toolbar>

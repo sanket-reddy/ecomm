@@ -24,7 +24,6 @@ export default function () {
       let response = await axios.post("../../../api/getLaptopdesc", {
         title: product,
       });
-      console.log(response.data);
       setdesc(response.data[1]?.description);
       setimg(response.data[0]?.img);
       setprice(response.data[0]?.price);
@@ -83,7 +82,6 @@ export default function () {
                   });
                   if (response.status === 200) {
                     alert("you have successfully bought the product");
-                    console.log(response.data);
                   } else {
                     alert("error has occured");
                   }

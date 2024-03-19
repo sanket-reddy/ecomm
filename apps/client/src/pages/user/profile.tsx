@@ -22,8 +22,9 @@ const profile = () => {
     if (window.location !== undefined) {
       let StoredToken: string = localStorage.getItem("token") ?? "";
       setToken(StoredToken);
+      console.log("stored the token : ", token);
     }
-  }, []);
+  }, [token]);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -36,7 +37,7 @@ const profile = () => {
       setProducts(data.products);
     };
     getProduct();
-  }, [token]);
+  }, [username]);
 
   if (Products === undefined) {
     return (
@@ -68,8 +69,10 @@ const profile = () => {
         <Appbar ClientType="user"></Appbar>
         <div style={{ backgroundColor: "#eeeeee", padding: "10px" }}>
           {" "}
-          <h1>Hello {username}</h1>
-          <h1>PRODUCTS YOU BOUGHT</h1>
+          <h1 className="text-2xl">
+            Hello <b>{username}</b>
+          </h1>
+          <h1 className="text-xl">Your orders</h1>
           {Products.map((item) => (
             <Laptop
               key={item.title}
