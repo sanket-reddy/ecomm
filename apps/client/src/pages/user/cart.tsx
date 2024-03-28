@@ -50,8 +50,8 @@ export default function () {
       <div className="bg-[#eeeeee] min-h-screen">
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <div className="mx-5">
-          <h1 className="text-2xl">Check out the Card</h1>
+        <div className="m-5">
+          <h1 className="text-2xl">Check out the Cart</h1>
           {product.map((item) => (
             <Product
               key={item.title}

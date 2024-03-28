@@ -86,13 +86,12 @@ export default function Appbar(props: ClientType) {
             </div>
 
             <div>
-              <Button
-                variant="contained"
+              <button
                 onClick={handleLogout}
                 className="bg-teal-500 w-[120px] font-bold text-black p-3 rounded-lg text-lg hover:bg-red-500"
               >
                 Logout
-              </Button>
+              </button>
             </div>
           </div>
         </Toolbar>

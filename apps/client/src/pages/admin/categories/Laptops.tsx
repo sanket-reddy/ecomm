@@ -57,16 +57,16 @@ export default function () {
             }}
           >
             <h2 className="text-2xl">Check your Laptops</h2>
-            <Button
-              variant="contained"
-              className="bg-teal-500 font-bold text-black hover:bg-teal-700"
+            <button
+              className="bg-teal-500 p-3  rounded-lg font-bold text-black hover:bg-teal-700"
               onClick={() => {
                 Router.push("add");
               }}
             >
               ADD NEW
-            </Button>
+            </button>
           </div>
+
           {Laptops.map((item, i) => (
             <Laptop
               key={`Laptop${i}`}
