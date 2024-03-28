@@ -47,10 +47,10 @@ export default function () {
   if (product) {
     let formattedPrice = cartprice.toLocaleString();
     return (
-      <>
+      <div className="bg-[#eeeeee] min-h-screen">
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <div style={{ backgroundColor: "#eeeeee", padding: "10px" }}>
+        <div className="mx-5">
           <h1 className="text-2xl">Check out the Card</h1>
           {product.map((item) => (
             <Product
@@ -64,7 +64,7 @@ export default function () {
           <h1 className="text-2xl">TOTAL PRICE OF CART</h1>
           <h2 className="text-2xl font-bold">{formattedPrice}</h2>
         </div>
-      </>
+      </div>
     );
   } else {
     return (
@@ -114,7 +114,23 @@ function Product(props: productDetials) {
             >
               BUY NOW
             </button>
-            <button className="bg-teal-500 p-2 rounded-lg font-bold hover:bg-teal-700">
+            <button
+              className="bg-teal-500 p-2 rounded-lg font-bold hover:bg-red-600"
+              onClick={async () => {
+                let response = await axios.post("../../../api/removefromcart", {
+                  token,
+                  title,
+                });
+                if (response.status === 200) {
+                  alert("you have successfully removed the product");
+                  window.location.reload();
+                  ``;
+                } else {
+                  alert("error has occured");
+                  console.log("an error has occured : ", response.data.error);
+                }
+              }}
+            >
               REMOVE
             </button>
           </div>

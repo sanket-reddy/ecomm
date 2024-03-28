@@ -40,13 +40,14 @@ export default function () {
     );
   } else {
     return (
-      <>
+      <div>
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col items-center min-h-screen justify-center ">
           <CircularProgress></CircularProgress>
+          <h1 className="text-3xl">Loading...</h1>
         </div>
-      </>
+      </div>
     );
   }
 }
