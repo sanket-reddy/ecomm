@@ -11,6 +11,8 @@ interface LaptopDetials {
   description: string;
   img: string;
   price: string;
+  rating: number;
+  total_users: number;
 }
 
 export default function () {
@@ -20,28 +22,29 @@ export default function () {
     if (typeof window !== "undefined") {
       const storedToken: string = localStorage.getItem("token") ?? "";
       setToken(storedToken);
-    }
-  }, []);
-
-  useEffect(() => {
-    const fetchLaptops = async () => {
-      try {
-        let response = await axios.get("../../api/getitems", {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
-        });
-        setLaptops(response.data);
-        console.log(response.data);
-      } catch (error) {
-        if (axios.isAxiosError(error)) {
-          console.log("Axios error : ", error.response);
-        } else {
-          console.log("error : ", error);
+      const fetchLaptops = async () => {
+        try {
+          let response = await axios.get("../../api/getitems", {
+            headers: {
+              authorization: `Bearer ${token}`,
+            },
+          });
+          if (response.status === 200) {
+            setLaptops(response.data);
+            console.log(response.data);
+          } else {
+            console.log("didn't yet recieve response");
+          }
+        } catch (error) {
+          if (axios.isAxiosError(error)) {
+            console.log("Axios error : ", error.response);
+          } else {
+            console.log("error : ", error);
+          }
         }
-      }
-    };
-    fetchLaptops();
+      };
+      fetchLaptops();
+    }
   }, [token]);
 
   if (Laptops) {
@@ -73,6 +76,9 @@ export default function () {
               title={item.title}
               img={item.img}
               price={item.price}
+              rating={item.rating}
+              total_users={item.total_users}
+              userType="admin"
             ></Laptop>
           ))}
         </div>

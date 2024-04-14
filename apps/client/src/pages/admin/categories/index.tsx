@@ -13,7 +13,7 @@ export default function () {
         <button
           className="bg-teal-500 p-3 w-[120px] rounded-md font-bold shadow-xl hover:bg-teal-700"
           onClick={() => {
-            Router.push("./add");
+            Router.push("./categories/add");
           }}
         >
           Add new

@@ -8,6 +8,8 @@ interface LaptopDetial {
   title: string;
   img: string;
   price: string;
+  rating: number;
+  total_users: number;
 }
 
 export default function () {
@@ -15,7 +17,6 @@ export default function () {
   useEffect(() => {
     const fetchData = async () => {
       let response = await axios.get("../../api/getLaptops");
-      console.log(response.data);
       setlaptop(response.data);
     };
     fetchData();
@@ -23,20 +24,22 @@ export default function () {
 
   if (laptop) {
     return (
-      <>
+      <div className="bg-[#eeeeee] min-h-screen">
         <GlobalStyles></GlobalStyles>
         <Appbar ClientType="user"></Appbar>
-        <div style={{ backgroundColor: "#eeeeee", padding: "10px" }}>
-          {laptop.map((item, i) => (
-            <Laptop
-              key={`Laptop${i}`}
-              title={item.title}
-              img={item.img}
-              price={item.price}
-            ></Laptop>
-          ))}
-        </div>
-      </>
+
+        {laptop.map((item, i) => (
+          <Laptop
+            key={`Laptop${i}`}
+            title={item.title}
+            img={item.img}
+            price={item.price}
+            rating={item.rating}
+            total_users={item.total_users}
+            userType="user"
+          ></Laptop>
+        ))}
+      </div>
     );
   } else {
     return (

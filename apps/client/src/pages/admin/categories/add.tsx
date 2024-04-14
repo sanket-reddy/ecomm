@@ -57,18 +57,17 @@ export default function () {
   }
   return (
     <>
-      <GlobalStyles></GlobalStyles>
       <Appbar ClientType="admin"></Appbar>
-      <div style={{ margin: "30px" }}>
+      <div className="flex flex-col mt-6 items-center min-h-screen">
         <h1>Add your product here</h1>
-        <FormControl fullWidth>
+        <FormControl className="w-1/2 ">
           <InputLabel variant="standard" htmlFor="uncontrolled-native">
             Category
           </InputLabel>
           <NativeSelect
             defaultValue={30}
             inputProps={{
-              name: "age",
+              name: "category",
               id: "uncontrolled-native",
             }}
             onChange={(e) => {
@@ -82,21 +81,11 @@ export default function () {
         </FormControl>
         <br></br>
         <br></br>
-        {/* <TextField
-          type="contained"
-          label="category"
-          style={{ width: "700px" }}
-          onChange={(e) => {
-            setcategory(e.target.value);
-          }}
-        ></TextField> */}
-        <br></br>
-        <br></br>
         <TextField
           type="contained"
           label="title"
+          className="w-1/2"
           multiline
-          style={{ width: "700px" }}
           onChange={(e) => {
             settitle(e.target.value);
           }}
@@ -107,7 +96,7 @@ export default function () {
           type="contained"
           label="description"
           multiline
-          style={{ width: "700px" }}
+          className="w-1/2"
           onChange={(e) => {
             setdescription(e.target.value);
           }}
@@ -118,7 +107,7 @@ export default function () {
           type="contained"
           label="imgLink"
           multiline
-          style={{ width: "700px" }}
+          className="w-1/2"
           onChange={(e) => {
             setimg(e.target.value);
           }}
@@ -128,14 +117,18 @@ export default function () {
         <TextField
           type="contained"
           label="price"
-          style={{ width: "700px" }}
+          className="w-1/2"
           onChange={(e) => {
             setprice(e.target.value);
           }}
         ></TextField>
         <br></br>
         <br></br>
-        <Button className="bg-teal-500" variant="contained" onClick={handleadd}>
+        <Button
+          className="bg-teal-500 font-bold"
+          variant="contained"
+          onClick={handleadd}
+        >
           SUBMIT
         </Button>
       </div>

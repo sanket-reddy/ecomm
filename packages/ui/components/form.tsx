@@ -38,8 +38,10 @@ export function Form(props: {
         onClick={async () => {
           let x = await props.onClick(username, password);
           setinfo("");
-          if (!x) {
+          if (!x && props.function === "LOGIN") {
             setinfo("Invalid username or password");
+          } else if (!x && props.function === "SIGNUP") {
+            setinfo("username already exists");
           }
         }}
       >

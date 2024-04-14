@@ -15,7 +15,8 @@ const laptopSchema = new Schema({
   description: { type: String },
   price: { type: Number },
   img: { type: String },
-  rating: { type: Number },
+  rating: { type: Number, default: 0 },
+  total_users: { type: Number, default: 0 },
 });
 
 const laptopDescriptionSchema = new Schema({

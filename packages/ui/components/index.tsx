@@ -5,3 +5,6 @@ export * from "./category";
 export * from "./Appbar";
 export * from "./Laptop";
 export * from "./form";
+export * from "./congratulations";
+export * from "./popup";
+export * from "./testpop";

@@ -8,12 +8,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   await ensureDbConnected();
-  let token = req.headers.authorization?.replace("Bearer ", "") ?? "";
-  let username = jwt.decode(token);
+  
+  const token = req.headers.authorization?.replace("Bearer ", "") ?? "";
+  const username = jwt.decode(token);
+
   try {
     const admin = await Admin.findOne({ username });
     if (!admin) {
-      res.status(404).send("Admin doesn't exists");
+      res.status(201).send("Admin doesn't exist");
     } else {
       res.status(200).send(admin.Laptops);
     }

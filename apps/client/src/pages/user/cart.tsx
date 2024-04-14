@@ -98,24 +98,7 @@ function Product(props: productDetials) {
           <h1 className="text-2xl font-bold my-2"> ₹ {formattedPrice}</h1>
           <div className="flex gap-4">
             <button
-              className="bg-teal-500 p-2 rounded-lg font-bold hover:bg-teal-700"
-              onClick={async () => {
-                let response = await axios.post("../../../api/buyproduct", {
-                  token,
-                  title,
-                  category: "Laptops",
-                });
-                if (response.status === 200) {
-                  alert("you have successfully bought the product");
-                } else {
-                  alert("error has occured");
-                }
-              }}
-            >
-              BUY NOW
-            </button>
-            <button
-              className="bg-teal-500 p-2 rounded-lg font-bold hover:bg-red-600"
+              className="bg-teal-500 p-2 w-[200px] rounded-lg font-bold hover:bg-red-600"
               onClick={async () => {
                 let response = await axios.post("../../../api/removefromcart", {
                   token,

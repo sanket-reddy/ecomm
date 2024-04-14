@@ -1,4 +1,4 @@
-import { AppBar, Button, Toolbar, Typography, IconButton } from "@mui/material";
+import { AppBar, Toolbar } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AccountCircleSharpIcon from "@mui/icons-material/AccountCircleSharp";
 import Router from "next/router";
@@ -22,7 +22,6 @@ export default function Appbar(props: ClientType) {
         <Toolbar>
           <div
             style={{
-              // display: "flex",
               justifyContent: "space-between",
               width: "100%",
               padding: "15px",

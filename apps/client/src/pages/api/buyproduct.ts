@@ -7,16 +7,19 @@ export default async function handler(
   res: NextApiResponse
 ) {
   await ensureDbConnected();
-  let { token, title, category } = req.body;
+  let { token, title, category } = await req.body;
+
   let username = jwt.decode(token);
   const user = await User.findOne({ username });
   if (category === "Laptops") {
     let product = await Laptops.findOne({ title });
+    product.total_users++;
     product.category = "Laptops";
     user.Products.push(product);
     try {
       await user.save();
-      res.status(200).send("You have bought the product successfully");
+      await product.save();
+      res.status(200).json({ message: "done" });
     } catch (error) {
       console.log("error", error);
     }

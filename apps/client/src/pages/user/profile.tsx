@@ -4,7 +4,6 @@ import Laptop from "ui/components/Laptop";
 import GlobalStyles from "../../../../../packages/lib/Globalstyles";
 import axios from "axios";
 import { CircularProgress } from "@mui/material";
-import Product from "ui/components/product";
 
 interface productDetials {
   title?: string;
@@ -12,12 +11,14 @@ interface productDetials {
   img?: string;
   price?: string;
   category?: string;
+  total_users?: number;
 }
 
 const profile = () => {
   let [token, setToken] = useState<string>("");
   let [username, setUsername] = useState<string>("");
   let [Products, setProducts] = useState<productDetials[]>();
+  const [users, setUsers] = useState<number>(0);
   useEffect(() => {
     if (window.location !== undefined) {
       let StoredToken: string = localStorage.getItem("token") ?? "";
@@ -35,6 +36,7 @@ const profile = () => {
       console.log(data);
       setUsername(data.username);
       setProducts(data.products);
+      setUsers(data.total_users);
     };
     getProduct();
   }, [username]);
